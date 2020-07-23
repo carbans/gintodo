@@ -1,9 +1,7 @@
 package main
 
 import (
-	"net/http"
 	"github.com/gin-gonic/gin"
-
 	"github.com/carbans/gintodo/models"
 	"github.com/carbans/gintodo/controllers"
 )
@@ -11,9 +9,13 @@ import (
 func main() {
 	r := gin.Default()
 
-	models.ConnectDatabase()
+	models.ConnectDataBase()
 
-	//r.GET("/tasks", controllers.FindTasks)
+	r.GET("/tasks", controllers.FindTasks)
+	r.POST("/tasks", controllers.CreateTask)
+	r.GET("/tasks/:id", controllers.FindTask)
+	r.PATCH("/tasks/:id", controllers.UpdateTask)
+	r.DELETE("/tasks/:id", controllers.DeleteTask)
 
 	r.Run()
 }
