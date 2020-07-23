@@ -13,7 +13,7 @@ func main() {
 
 	models.ConnectDatabase()
 
-	r.GET("/tasks", controllers.FindTasks)
+	//r.GET("/tasks", controllers.FindTasks)
 
 	r.Run()
 }
